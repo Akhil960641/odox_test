@@ -20,6 +20,7 @@ class CartItem {
 
   @HiveField(5)
   String image;
+  
 
   CartItem({
     required this.id,

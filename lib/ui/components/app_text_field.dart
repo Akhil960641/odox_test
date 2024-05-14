@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:odox_test/ui/components/app_svg.dart';
 import 'package:odox_test/ui/components/app_text.dart';
 import 'package:odox_test/utils/extensions/margin_ext.dart';
 import 'package:odox_test/utils/extensions/string_ext.dart';
@@ -124,7 +125,7 @@ class AppTextField extends StatelessWidget {
                               onTap!();
                             },
                             child: isAddOrMinusIcon)
-                        :  0.hBox
+                        : const AppSvg(assetName: "arrow-down")
                     : null),
             fillColor: Colors.white,
             filled: true,

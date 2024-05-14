@@ -58,7 +58,7 @@ class CartPage extends StatelessWidget {
                                     contentPadding: EdgeInsets.zero,
                                     title: AppText("${data.title}",
                                         color: Colors.black, family: inter600),
-                                    subtitle: AppText("₹${data.price}",
+                                    subtitle: AppText("\$${data.price}",
                                         color: txtGrey,
                                         size: 12,
                                         family: inter500),
@@ -102,9 +102,9 @@ class CartPage extends StatelessWidget {
                             const AppText("SubTotal",
                                 size: 12, family: inter500),
                             state is AddToCartDataLoaded
-                                ? AppText("\₹${state.totalPrice}",
+                                ? AppText("\$${state.totalPrice}",
                                     size: 12, family: inter500)
-                                : const AppText("₹0.00",
+                                : const AppText("\$0.00",
                                     size: 12, family: inter500),
                           ],
                         ),
@@ -113,7 +113,7 @@ class CartPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             AppText("Tax", size: 12, family: inter500),
-                            AppText("\₹50.0", size: 12, family: inter500),
+                            AppText("\$50.0", size: 12, family: inter500),
                           ],
                         ),
                         10.hBox,
@@ -124,7 +124,7 @@ class CartPage extends StatelessWidget {
                           children: [
                             const AppText("Total", size: 14, family: inter600),
                             state is AddToCartDataLoaded
-                                ? AppText("\₹${state.totalTaxPrice}",
+                                ? AppText("\$${state.totalTaxPrice}",
                                     size: 14, family: inter500)
                                 : const AppText("\.00",
                                     size: 14, family: inter500),

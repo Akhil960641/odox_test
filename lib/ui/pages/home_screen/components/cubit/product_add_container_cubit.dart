@@ -30,34 +30,35 @@ class ProductAddContainerCubit extends Cubit<ProductAddContainerState> {
   }
 
   final boxName = 'cartBox';
+  bool clicked = false;
 
   void addItem(CartItem item) async {
     var box = await Hive.openBox<CartItem>(boxName);
-    box.add(item);
+    box.put(item.id, item); // Use id as the key
     emit(AddToCartDataLoaded(box: box.values.toList()));
   }
 
   void increaseCartItemQuantity(String id) async {
     increment();
     var box = await Hive.openBox<CartItem>(boxName);
-    CartItem cartItem = box.values.firstWhere((item) => item.id == id);
+    CartItem? cartItem = box.get(id);
 
     if (cartItem != null) {
+      
       cartItem.quantity += 1;
-      // await box.putAt(int.parse(cartItem.id), cartItem);
+      box.put(id, cartItem); // Update existing item
       getCartItems();
-      // Update the cart state after incrementing
     }
   }
 
   void decreaseCartItemQuantity(String id) async {
     decrement();
     var box = await Hive.openBox<CartItem>(boxName);
-    CartItem cartItem = box.values.firstWhere((item) => item.id == id);
+    CartItem? cartItem = box.get(id);
 
     if (cartItem != null && cartItem.quantity > 0) {
       cartItem.quantity -= 1;
-      await box.putAt(int.parse(cartItem.id), cartItem);
+      box.put(id, cartItem); // Update existing item
       getCartItems();
       emit(AddToCartDataLoaded(box: box.values.toList()));
     }
@@ -87,7 +88,6 @@ class ProductAddContainerCubit extends Cubit<ProductAddContainerState> {
   }
 
   Future<void> deleteItem(int id) async {
-    debugPrint(id.toString());
     var box = await Hive.openBox<CartItem>(boxName);
     await box.deleteAt(id);
     getCartItems();
