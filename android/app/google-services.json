@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "65563106174",
+    "project_id": "odoxproject-bddef",
+    "storage_bucket": "odoxproject-bddef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:65563106174:android:d9470b198d5cc38439f12f",
+        "android_client_info": {
+          "package_name": "com.example.odox_test"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJkr2S7inMJb0ZnNUR-qmFXGGGgP9Ub3c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
