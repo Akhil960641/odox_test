@@ -7,7 +7,7 @@ import '../../utils/strings.dart';
 
 class BtnPrimaryGradient extends StatelessWidget {
   const BtnPrimaryGradient({
-    Key? key,
+    super.key,
     required this.onTap,
     required this.text,
     this.family = inter600,
@@ -21,7 +21,7 @@ class BtnPrimaryGradient extends StatelessWidget {
     this.height = 48,
     this.isOnlyRadius = false,
     this.isOnlyRadiusSize = 9,
-  }) : super(key: key);
+  });
 
   final void Function() onTap;
   final String text;

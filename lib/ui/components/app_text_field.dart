@@ -10,7 +10,7 @@ import '../../utils/strings.dart';
 
 class AppTextField extends StatelessWidget {
   const AppTextField(
-      {Key? key,
+      {super.key,
       this.hint,
       this.controller,
       required this.label,
@@ -30,8 +30,7 @@ class AppTextField extends StatelessWidget {
       this.isBorderNeeded = true,
       this.isAddField = false,
       this.maxLines = 1,
-      this.isAddOrMinusIcon})
-      : super(key: key);
+      this.isAddOrMinusIcon});
 
   final String? hint, helperText;
   final String label;

@@ -26,7 +26,7 @@ class LoginScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      AppText(
+                      const AppText(
                         "Sign Up",
                         weight: FontWeight.w600,
                         size: 22,
@@ -84,10 +84,10 @@ class LoginScreen extends StatelessWidget {
                       35.hBox,
                       Row(
                         children: [
-                          AppText("Alredy have account?"),
+                          const AppText("Alredy have account?"),
                           TextButton(
                               onPressed: () => cubit.screenChange(),
-                              child: AppText("Sign In"))
+                              child: const AppText("Sign In"))
                         ],
                       ),
                     ],
@@ -96,14 +96,14 @@ class LoginScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      AppText(
+                      const AppText(
                         "Sign in",
                         weight: FontWeight.w600,
                         size: 20,
                         color: Colors.blue,
                         // ),
                       ),
-                      AppText(
+                      const AppText(
                         "Welcome back! Please enter your credentials to login",
                         weight: FontWeight.w500,
                         size: 9.5,
@@ -145,10 +145,10 @@ class LoginScreen extends StatelessWidget {
                       35.hBox,
                       Row(
                         children: [
-                          AppText("Don't have account?"),
+                          const AppText("Don't have account?"),
                           TextButton(
                               onPressed: () => cubit.screenChange(),
-                              child: AppText("Sign up"))
+                              child: const AppText("Sign up"))
                         ],
                       ),
                     ],

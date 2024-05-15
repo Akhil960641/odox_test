@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../utils/strings.dart';
 
 class AppAssetImg extends StatelessWidget {
-  const AppAssetImg({Key? key, required this.imageName, this.fit, this.width, this.height}) : super(key: key);
+  const AppAssetImg({super.key, required this.imageName, this.fit, this.width, this.height});
 
   final String imageName;
   final BoxFit? fit;

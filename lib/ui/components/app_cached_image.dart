@@ -29,7 +29,7 @@ class CachedImage extends StatelessWidget {
           height: height,
           width: width,
 
-          imageUrl: "${imageUrl}",
+          imageUrl: "$imageUrl",
           // placeholder: (context, url) =>
           //     const Center(child: CupertinoActivityIndicator()),
           errorWidget: (context, url, error) => const SizedBox(),

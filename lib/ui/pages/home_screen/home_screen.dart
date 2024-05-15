@@ -1,14 +1,13 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:odox_test/ui/components/app_bar_custom.dart';
-import 'package:odox_test/ui/pages/auth/login_page.dart';
 import 'package:odox_test/ui/pages/cart_page/cart_page.dart';
 import 'package:odox_test/ui/pages/home_screen/components/product_add_container.dart';
 import 'package:odox_test/ui/pages/home_screen/cubit/home_screen_cubit.dart';
 import 'package:odox_test/ui/pages/product_details/product_details.dart';
 import 'package:odox_test/utils/extensions/margin_ext.dart';
+import 'package:odox_test/utils/shared/fns.dart';
 import 'package:odox_test/utils/shared/page_navigator.dart';
 import '../../../utils/colors.dart';
 import '../../components/app_cached_image.dart';
@@ -153,8 +152,10 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => FirebaseAuth.instance.signOut().then((value) => Screen.openAsNewPage(context, LoginScreen())),
-        child: Icon(Icons.logout),
+        onPressed: () {
+Helper.clearCart(context);
+        },
+        child:const Icon(Icons.logout),
       ),
     );
   }

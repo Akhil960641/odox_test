@@ -32,6 +32,7 @@ class Counter extends StatelessWidget {
                       cubit.increment();
                       cubit.addItem(
                           CartItem(
+                            clicked: cubit.clicked,
                             image: data!.image!.toString(),
                             id: data!.id.toString(), title: data!.title.toString(), price: data!.price!.toDouble(), quantity: cubit.productCount, description: customerName.toString()));
                     },

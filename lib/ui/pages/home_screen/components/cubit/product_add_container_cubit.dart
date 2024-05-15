@@ -1,5 +1,7 @@
 // ignore_for_file: unnecessary_null_comparison, depend_on_referenced_packages, unnecessary_import
 
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
@@ -33,32 +35,61 @@ class ProductAddContainerCubit extends Cubit<ProductAddContainerState> {
   bool clicked = false;
 
   void addItem(CartItem item) async {
+    clicked = true;
+    log(clicked.toString());
+
     var box = await Hive.openBox<CartItem>(boxName);
-    box.put(item.id, item); // Use id as the key
+    box.put(item.id, item); 
     emit(AddToCartDataLoaded(box: box.values.toList()));
   }
 
   void increaseCartItemQuantity(String id) async {
     increment();
+    clicked = true;
+
+    log(clicked.toString());
+
     var box = await Hive.openBox<CartItem>(boxName);
     CartItem? cartItem = box.get(id);
 
     if (cartItem != null) {
-      
       cartItem.quantity += 1;
-      box.put(id, cartItem); // Update existing item
+      box.put(id, cartItem); 
       getCartItems();
+      emit(AddToCartDataLoaded(box: box.values.toList()));
+
     }
   }
 
+  // void addItem(CartItem item) async {
+  //   var box = await Hive.openBox<CartItem>(boxName);
+  //   box.add(item);
+  //   emit(AddToCartDataLoaded(box: box.values.toList()));
+  // }
+
+  // void increaseCartItemQuantity(String id) async {
+  //   increment();
+  //   var box = await Hive.openBox<CartItem>(boxName);
+  //   CartItem cartItem = box.values.firstWhere((item) => item.id == id);
+
+  //   if (cartItem != null) {
+  //     cartItem.quantity += 1;
+  //     // await box.putAt(int.parse(cartItem.id), cartItem);
+  //     getCartItems();
+  //     // Update the cart state after incrementing
+  //   }
+  // }
   void decreaseCartItemQuantity(String id) async {
+    log(clicked.toString());
     decrement();
     var box = await Hive.openBox<CartItem>(boxName);
     CartItem? cartItem = box.get(id);
 
     if (cartItem != null && cartItem.quantity > 0) {
       cartItem.quantity -= 1;
-      box.put(id, cartItem); // Update existing item
+    if (productCount == 0) clicked = false;
+      
+      box.put(id, cartItem); 
       getCartItems();
       emit(AddToCartDataLoaded(box: box.values.toList()));
     }
@@ -83,7 +114,7 @@ class ProductAddContainerCubit extends Cubit<ProductAddContainerState> {
 
       debugPrint("........$totalPrice $totalTaxPrice");
     } catch (e) {
-      print(e);
+      log(e.toString());
     }
   }
 

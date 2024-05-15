@@ -10,15 +10,3 @@ const imagePath = 'assets/images';
 
 
 
-//other
-const username = "Username",
-    pass = "Password",
-    login = "Login",
-    start = "Start";
-
-// icons
-
-const newOrderBtnSvg = "newOrder",
-    cartBtnSvg = "shopping-cart",
-    returnOrderBtnSvg = "return_order.svg",
-    customersBtnSvg = "cutomer";

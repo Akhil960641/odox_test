@@ -20,7 +20,8 @@ class CartItem {
 
   @HiveField(5)
   String image;
-  
+   @HiveField(6)
+  bool clicked;
 
   CartItem({
     required this.id,
@@ -29,5 +30,7 @@ class CartItem {
     required this.quantity,
     required this.description,
     required this.image, 
+    required this.clicked, 
+
   });
 }
