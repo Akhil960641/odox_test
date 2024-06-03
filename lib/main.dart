@@ -17,8 +17,7 @@ void main() async {
   Hive.init(appDocumentDir.path);
   Hive.registerAdapter(CartItemAdapter());
 
-  // Hive.registerAdapter(DataAdapter());
-  // Hive.registerAdapter(DataAdapterCust());
+
   runApp(const MyApp());
 }
 

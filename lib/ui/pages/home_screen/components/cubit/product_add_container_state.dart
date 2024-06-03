@@ -7,9 +7,9 @@ sealed class ProductAddContainerState {}
 
 final class ProductAddContainerInitial extends ProductAddContainerState {}
 
-class AddToCartDataLoaded extends ProductAddContainerState {
-  List<CartItem> box;
-  String? totalTaxPrice;
-  String? totalPrice;
-  AddToCartDataLoaded({required this.box, this.totalTaxPrice, this.totalPrice});
-}
+// class AddToCartDataLoaded extends ProductAddContainerState {
+//   List<CartItem> box;
+//   String? totalTaxPrice;
+//   String? totalPrice;
+//   AddToCartDataLoaded({required this.box, this.totalTaxPrice, this.totalPrice});
+// }

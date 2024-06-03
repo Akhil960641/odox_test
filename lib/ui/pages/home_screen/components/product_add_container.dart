@@ -16,25 +16,29 @@ class Counter extends StatelessWidget {
   final CartItem? cartData;
   final String? customerName, id;
   final bool isCartPage;
+  
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ProductAddContainerCubit(selectProductCount),
+      create: (context) => ProductAddContainerCubit(),
       child: BlocBuilder<ProductAddContainerCubit, ProductAddContainerState>(
         builder: (context, state) {
           final cubit = context.read<ProductAddContainerCubit>();
           return Container(
-            child: cubit.productCount == 0
-                ? BtnPrimaryGradient(
+            child:
+            //  cubit.productCount == 0
+            //     ?
+                 BtnPrimaryGradient(
                     width: 70,
                     height: 30,
                     onTap: () {
-                      cubit.increment();
-                      cubit.addItem(
-                          CartItem(
-                            clicked: cubit.clicked,
-                            image: data!.image!.toString(),
-                            id: data!.id.toString(), title: data!.title.toString(), price: data!.price!.toDouble(), quantity: cubit.productCount, description: customerName.toString()));
+                      // cubit.increment();
+                      // cubit.addItem(
+                      //     CartItem(
+                      //       clicked: cubit.clicked,
+                      //       image: data!.image!.toString(),
+                      //       id: data!.id.toString(), title: data!.title.toString(), price: data!.price!.toDouble(), quantity: cubit.productCount, description: customerName.toString()));
+                     
                     },
                     text: "Add",
                     fontSize: 14,
@@ -42,63 +46,64 @@ class Counter extends StatelessWidget {
                     borderRadius: 5,
                     family: inter600,
                   )
-                : Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          cubit.decreaseCartItemQuantity(isCartPage ? id.toString() : data!.id.toString());
-                          // cubit.deleteItem(int.parse(id.toString()));
-                        },
-                        child: Container(
-                            width: 20,
-                            height: 30,
-                            alignment: Alignment.center,
-                            decoration: const BoxDecoration(
-                                color: primaryColor,
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(5),
-                                  topLeft: Radius.circular(5),
-                                )),
-                            child: const AppText("-", family: inter600, color: colorWhite, size: 18)),
-                      ),
-                      Container(
-                        width: 30,
-                        height: 30,
-                        decoration: const BoxDecoration(
-                          color: primaryColor,
-                        ),
-                        child: Center(
-                          child: AppText(
-                            cubit.productCount,
-                            family: inter600,
-                            color: colorWhite,
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          cubit.increaseCartItemQuantity(isCartPage ? id.toString() : data!.id.toString());
-                          // cubit.addItem(CartItem(
-                          //     productName: data!.name.toString(),
-                          //     price: data!.price!.toDouble(),
-                          //     quantity: cubit.productCount,
-                          //     customerName: customerName.toString()));
-                        },
-                        child: Container(
-                            width: 20,
-                            height: 30,
-                            alignment: Alignment.center,
-                            decoration: const BoxDecoration(
-                                color: primaryColor,
-                                borderRadius: BorderRadius.only(
-                                  bottomRight: Radius.circular(5),
-                                  topRight: Radius.circular(5),
-                                )),
-                            child: const AppText("+", family: inter600, color: colorWhite, size: 18)),
-                      ),
-                    ],
-                  ),
+                // :
+                //  Row(
+                //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //     children: [
+                //       GestureDetector(
+                //         onTap: () {
+                //           cubit.decreaseCartItemQuantity(isCartPage ? id.toString() : data!.id.toString());
+                //           // cubit.deleteItem(int.parse(id.toString()));
+                //         },
+                //         child: Container(
+                //             width: 20,
+                //             height: 30,
+                //             alignment: Alignment.center,
+                //             decoration: const BoxDecoration(
+                //                 color: primaryColor,
+                //                 borderRadius: BorderRadius.only(
+                //                   bottomLeft: Radius.circular(5),
+                //                   topLeft: Radius.circular(5),
+                //                 )),
+                //             child: const AppText("-", family: inter600, color: colorWhite, size: 18)),
+                //       ),
+                //       Container(
+                //         width: 30,
+                //         height: 30,
+                //         decoration: const BoxDecoration(
+                //           color: primaryColor,
+                //         ),
+                //         child: Center(
+                //           child: AppText(
+                //             cubit.productCount,
+                //             family: inter600,
+                //             color: colorWhite,
+                //           ),
+                //         ),
+                //       ),
+                //       GestureDetector(
+                //         onTap: () {
+                //           cubit.increaseCartItemQuantity(isCartPage ? id.toString() : data!.id.toString());
+                //           // cubit.addItem(CartItem(
+                //           //     productName: data!.name.toString(),
+                //           //     price: data!.price!.toDouble(),
+                //           //     quantity: cubit.productCount,
+                //           //     customerName: customerName.toString()));
+                //         },
+                //         child: Container(
+                //             width: 20,
+                //             height: 30,
+                //             alignment: Alignment.center,
+                //             decoration: const BoxDecoration(
+                //                 color: primaryColor,
+                //                 borderRadius: BorderRadius.only(
+                //                   bottomRight: Radius.circular(5),
+                //                   topRight: Radius.circular(5),
+                //                 )),
+                //             child: const AppText("+", family: inter600, color: colorWhite, size: 18)),
+                //       ),
+                //     ],
+                //   ),
           );
         },
       ),
